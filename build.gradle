@@ -29,11 +29,20 @@ repositories {
 // 개발과 테스트에 필요한 의존성을 내려받는다. (plugin과 다른점은 개발자에게 노출된다.)
 // https://docs.gradle.org/current/userguide/java_library_plugin.html 참고
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-web')
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.projectlombok:lombok')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    annotationProcessor('org.projectlombok:lombok')
+    implementation('com.h2database:h2')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testAnnotationProcessor('org.projectlombok:lombok')
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.7.0')
+    testImplementation('org.projectlombok:lombok')
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testImplementation('com.h2database:h2')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.7.0')
 }
 
 test {
